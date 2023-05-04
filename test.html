@@ -1,0 +1,235 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <!-- <meta name="viewport" content="width=device-width, initial-scale=1.0"> -->
+    <meta name="viewport" content="width=device-width,initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no"/>
+    <title>兴啊顺啊</title>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/2.1.2/TweenMax.min.js"> </script>
+    <style>
+        html, body {
+            margin: 0;
+            height: 100%;
+            width: 100%;
+            overflow: hidden;
+        }
+        .box {
+            height: 100%;
+            width: 100%;
+            margin: 0 auto;
+            text-align: center;
+        }
+        .background {
+            
+            /* position:absolute; */
+        }
+        .plate0 {
+            height: 100%;
+            width: 100%;
+            position: relative; 
+            margin: 0 auto;
+            transform-origin: 50% 70%;
+        }
+        .god_btn {
+            top: 75%;
+            left: 42%;
+            width: 17%;
+            height: 30%;
+            background-color: transparent;
+
+            transform-origin: 50% 0%;
+            position:absolute; 
+            z-index:1;
+            border-style: none;
+        }
+
+        #cover {
+            top: 64%;
+            left: 39.5%;
+            width: 22.5%;
+            height: 22.5%;
+            background-color: transparent;
+            border-radius: 4000px; 
+            position: absolute; 
+            z-index:2;
+            border-style: none;
+        }
+        .plate1 {
+            left:0; top:0;
+            position:relative; 
+            transform-origin: 50% 51%;
+        }
+        .plate1_btn {
+            top:0;
+            left:0; 
+            width:100%; height: 0;
+            height: auto;
+            padding-bottom: 100%;
+            position:absolute; 
+            transform-origin: 50% 75%;
+            /* transform-origin: 715px 722px; */
+        }
+        img{height: auto; width: auto; width:100%;}
+        
+    </style>
+</head>
+<body>
+    <div class="box"> 
+        <div class="background" >
+            <img src="images/G底色.png" style="position:absolute; left:0; top:0; z-index:1" />
+            <img src="images/F文字.png" style="position:absolute; left:0; top:0; z-index:1" />
+        </div>
+        
+        <div class="plate0 " style="position:absolute; z-index: 1">
+            <img src="images/E盘底.png" style="position:absolute; left:0; top:0; z-index:1" />
+            <div style="left:0; top:0; padding-top: 23.6%;"></div>
+            <img src="images/D神.png" class="plate1" style="left:0; top:0; z-index:2; scale:0.66666" />
+            <img src="images/C嵌瓷-固定-底.png" style="position:absolute; left:0; top:0; z-index:3" />
+            <img src="images/B嵌瓷-动.png"class="plate2" style="position:absolute; left:0; top:2.2%; z-index:4" />
+            <img src="images/A嵌瓷-固定-顶.png" style="position:absolute; left:0; top:0; z-index:5" />
+            
+            
+        </div style="position:absolute; z-index: 2">
+        <div class="cloud">
+            <img src="images/云/云1.png" id="cloud1" style="position:absolute; left:0; top:0; z-index: 6" />
+            <img src="images/云/云2.png" id="cloud2" style="position:absolute; left:0; top:0; z-index: 6" />
+            <img src="images/云/云3.png" id="cloud3" style="position:absolute; left:0; top:0; z-index: 6" />
+            <img src="images/云/云4.png" id="cloud4" style="position:absolute; left:0; top:0; z-index: 6" />
+            <img src="images/云/云5.png" id="cloud5" style="position:absolute; left:0; top:0; z-index: 6" />
+            <img src="images/云/云6.png" id="cloud6" style="position:absolute; left:0; top:0; z-index: 6" />
+        </div>
+        <div class="plate0" style="position:absolute; z-index: 8">
+            <div class="plate1_btn" style="z-index: 7">
+                <button class="god_btn" id='god0' onclick="select(this.id)" style="transform: rotate(0deg)">  </button>
+                <button class="god_btn" id='god1' onclick="select(this.id)" style="transform: rotate(60deg)">  </button>
+                <button class="god_btn" id='god2' onclick="select(this.id)" style="transform: rotate(120deg)">  </button>
+                <button class="god_btn" id='god3' onclick="select(this.id)" style="transform: rotate(180deg)">  </button>
+                <button class="god_btn" id='god4' onclick="select(this.id)" style="transform: rotate(240deg)">  </button>
+                <button class="god_btn" id='god5' onclick="select(this.id)" style="transform: rotate(300deg)">  </button>
+                <button id="cover"></button>
+            </div>
+        </div>
+        
+
+    </div>
+    <script>
+        // 转盘旋转
+        TweenMax.to(".plate1", 120, {
+            repeat: -1,
+            rotation:360,
+            ease: Linear.easeNone
+        });
+        TweenMax.to(".plate1_btn", 120, {
+            repeat: -1,
+            rotation:360,
+            ease: Linear.easeNone
+        });
+        TweenMax.to(".plate2", 90, {
+            repeat: -1,
+            rotation:-360,
+            ease: Linear.easeNone
+        });
+        // 云效果
+        TweenMax.to("#cloud1", 15, {
+            x: -50,
+            ease: Power1.easeInOut,
+            repeat: -1,
+            yoyo: true
+        });
+        TweenMax.to("#cloud2", 6, {
+            x: -20,
+            ease: Power1.easeInOut,
+            repeat: -1,
+            yoyo: true
+        });
+        TweenMax.to("#cloud3", 8, {
+            x: -30,
+            ease: Power1.easeInOut,
+            repeat: -1,
+            yoyo: true
+        });
+        TweenMax.to("#cloud4", 15, {
+            x: 60,
+            ease: Power1.easeInOut,
+            repeat: -1,
+            yoyo: true
+        });
+        TweenMax.to("#cloud5", 12, {
+            x: 30,
+            ease: Power1.easeInOut,
+            repeat: -1,
+            yoyo: true
+        });
+        TweenMax.to("#cloud6", 10, {
+            x: 50,
+            ease: Power1.easeInOut,
+            repeat: -1,
+            yoyo: true
+        });
+        // 如果点击按钮
+        function select(clicked_id){
+            var god = document.getElementById(clicked_id)
+            var num = -1
+            switch(clicked_id){
+                case 'god0': num = 0; break;
+                case 'god1': num = 1; break;
+                case 'god2': num = 2; break;
+                case 'god3': num = 3; break;
+                case 'god4': num = 4; break;
+                case 'god5': num = 5; break;
+            }
+            var angle = -60 * num
+            if(angle <= -180){
+                angle = 360 + angle
+            }
+            // 旋转转盘和对应按钮
+            TweenMax.to(".plate1", 1, {
+                rotation: angle,
+                ease: Power1.easeInOut
+            });
+            TweenMax.to(".plate1_btn", 1, {
+                rotation: angle,
+                ease: Power1.easeInOut
+            });
+            // 放大整体画面
+            TweenMax.to(".plate0", 1, {
+                scale: 2,
+                ease: Power1.easeInOut
+            });
+            // 云淡出消失
+            TweenMax.to("#cloud1", 1, {
+                x: -200,
+                opacity: 0,
+                ease: Power1.easeInOut
+            });
+            TweenMax.to("#cloud2", 1, {
+                x: -150,
+                opacity: 0,
+                ease: Power1.easeInOut
+            });
+            TweenMax.to("#cloud3", 1, {
+                x: -100,
+                opacity: 0,
+                ease: Power1.easeInOut
+            });
+            TweenMax.to("#cloud4", 1, {
+                x: 200,
+                opacity: 0,
+                ease: Power1.easeInOut
+            });
+            TweenMax.to("#cloud5", 1, {
+                x: 150,
+                opacity: 0,
+                ease: Power1.easeInOut
+            });
+            TweenMax.to("#cloud6", 1, {
+                x: 100,
+                opacity: 0,
+                ease: Power1.easeInOut
+            });
+            // alert(clicked_id);
+        }
+	</script>
+</body>
+</html>
